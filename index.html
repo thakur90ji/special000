@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin: Generate Link</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        label { font-weight: bold; margin-top: 15px; display: block; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #ff4d6d; color: white; border: none; border-radius: 5px; font-size: 18px; margin-top: 20px; cursor: pointer; }
+        .result-box { margin-top: 20px; padding: 15px; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 5px; display: none; word-wrap: break-word; }
+        .note { font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎂 Birthday Link Generator</h2>
+        <p class="note">Paste the direct links to your media below. (Links must end in .jpg, .mp4, .mp3 etc.)</p>
+        
+        <label>1. Password Screen Background (Image Link)</label>
+        <input type="text" id="darkBg" placeholder="https://example.com/dark-stars.jpg">
+
+        <label>2. Romantic Theme Background (Image Link)</label>
+        <input type="text" id="romBg" placeholder="https://example.com/romantic.jpg">
+
+        <label>3. First Photo (Image Link)</label>
+        <input type="text" id="photo" placeholder="https://example.com/first-photo.jpg">
+
+        <label>4. "Song for u bubuu" (Audio Link)</label>
+        <input type="text" id="audio" placeholder="https://example.com/song.mp3">
+
+        <label>5. Lovely Video (Video Link)</label>
+        <input type="text" id="video" placeholder="https://example.com/video.mp4">
+
+        <label>6. Your Heartfelt Letter</label>
+        <textarea id="letter" rows="4" placeholder="Type your letter here..."></textarea>
+
+        <button onclick="generateLink()">Generate Wife's Link</button>
+
+        <div id="resultBox" class="result-box">
+            <strong>Copy this link and send it to her (or make a QR code):</strong>
+            <p id="finalLink" style="font-family: monospace; user-select: all;"></p>
+        </div>
+    </div>
+
+    <script>
+        function generateLink() {
+            // Gather all the inputs
+            const data = {
+                dbg: document.getElementById('darkBg').value.trim(),
+                rbg: document.getElementById('romBg').value.trim(),
+                img: document.getElementById('photo').value.trim(),
+                aud: document.getElementById('audio').value.trim(),
+                vid: document.getElementById('video').value.trim(),
+                txt: document.getElementById('letter').value.trim()
+            };
+
+            // Encode data so it's hidden in the URL safely
+            const encodedData = btoa(encodeURIComponent(JSON.stringify(data)));
+            
+            // Generate the final URL
+            let baseUrl = window.location.href.split('index.html')[0];
+            if (!baseUrl.endsWith('/')) baseUrl += '/';
+            const finalUrl = baseUrl + 'surprise.html?d=' + encodedData;
+
+            // Display the link
+            document.getElementById('resultBox').style.display = 'block';
+            document.getElementById('finalLink').innerText = finalUrl;
+        }
+    </script>
+</body>
+</html>
