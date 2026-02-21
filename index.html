@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="screen1" class="screen active dark-theme">
+        <div class="content">
+            <h1>enter your full name❤️</h1>
+            <input type="text" id="passwordBox" placeholder="Type here...">
+            <button onclick="checkPassword()">Enter</button>
+        </div>
+    </div>
+
+    <div id="screen2" class="screen romantic-theme">
+        <div class="content">
+            <h1 id="countdownText" class="hidden">3</h1>
+            
+            <div id="cakeSection" class="hidden">
+                <div id="partyDecor" class="hidden">🎊🎉🎊</div>
+                <div id="cakeArea" onclick="decorateCake()">
+                    <span id="cakeGraphic" style="font-size: 80px;">🎂</span>
+                    <p id="decorateHint">Tap to decorate!</p>
+                </div>
+                
+                <div id="knife" class="hidden" onclick="cutCake()" style="font-size: 50px; cursor: pointer; margin-top: 20px;">🔪</div>
+                
+                <h2 id="bdayMessage" class="hidden">happy birthday mera betu ❤️</h2>
+                
+                <button id="arrowTo3" class="hidden arrow-btn" onclick="slideScreen(2, 3)">➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen3" class="screen romantic-theme">
+        <div class="content">
+            <h2>Tap to burst!</h2>
+            <div class="balloon-container">
+                <div class="balloon" onclick="burstBalloon(this)">🎈</div>
+                <div class="balloon" onclick="burstBalloon(this)">🎈</div>
+                <div class="balloon" onclick="burstBalloon(this)">🎈</div>
+                <div class="balloon" onclick="burstBalloon(this)">🎈</div>
+            </div>
+            <button id="arrowTo4" class="hidden arrow-btn" onclick="slideScreen(3, 4)">➡️</button>
+        </div>
+    </div>
+
+    <div id="screen4" class="screen romantic-theme">
+        <div class="content">
+            <audio id="bubuuSong" src="song-for-u.mp3"></audio>
+            
+            <button id="playBtn" onclick="playMusicAndShowPhoto()">song for u bubuu</button>
+            
+            <div id="photoSection" class="hidden">
+                <img src="first-photo.jpg" alt="Our First Photo">
+                <p>apni pahali photo which made me fall more for u mera bacha 🥺</p>
+                <button class="next-btn" onclick="slideScreen(4, 5)">want to read what I wrote for u</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen5" class="screen romantic-theme">
+        <div class="content">
+            <div class="letter-box">
+                <p id="typewriterText">Happy birthday to my beautiful wife. You are my everything...</p> 
+            </div>
+            <button id="arrowTo6" class="hidden arrow-btn" onclick="slideScreen(5, 6)">abhi aage bhi hai toda sa ➡️</button>
+        </div>
+    </div>
+
+    <div id="screen6" class="screen dark-theme">
+        <div class="content">
+            <video id="finalVideo" src="lovely-video.mp4" controls preload="auto"></video>
+            <p id="finalText" class="hidden">thank u for coming in my life ❤️🥹 and once again wish u a very very happy birathday my betu</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
